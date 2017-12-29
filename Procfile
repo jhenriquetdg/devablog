@@ -1,1 +1,1 @@
-web: flask db upgrade; flask translate compile; gunicorn devablog:app
+web: flask db upgrade; gunicorn devablog:app
