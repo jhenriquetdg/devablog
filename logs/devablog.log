@@ -1,0 +1,23 @@
+2017-12-31 16:20:41,745 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2017-12-31 16:23:27,852 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
+2017-12-31 16:23:35,511 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response

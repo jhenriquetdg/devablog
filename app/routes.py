@@ -19,6 +19,11 @@ def before_request():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    flash("Mail Server:")
+    flash(app.config['MAIL_SERVER'])
+    flash(app.config['MAIL_PORT'])
+    flash(app.config['MAIL_USERNAME'])
+    flash(app.config['MAIL_PASSWORD'])
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
@@ -99,7 +104,7 @@ def index():
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
-    form = EditProfileForm()
+    form = EditProfileForm(current_user.username)
 
     if form.validate_on_submit():
         current_user.username = form.username.data
