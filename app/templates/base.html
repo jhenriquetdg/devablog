@@ -1,5 +1,10 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock scripts %}
+
 {% block title %}
     {% if title %}{{ title }} - Devasoft{% else %}Welcome to Devasoft{% endif %}
 {% endblock %}
