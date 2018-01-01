@@ -17,7 +17,6 @@ followers = db.Table('followers',
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id')),
     )
 
-
 class User(UserMixin, db.Model):
 
     # ID
@@ -72,6 +71,18 @@ class User(UserMixin, db.Model):
         own = Post.query.filter_by(user_id=self.id)
 
         return followed.union(own).order_by(Post.timestamp.desc())
+
+    def get_reset_password_token(self, expires_in=600)
+        return jwt.encode({"reset_password:" self.username, "exp": time()+expires_in}, app.config["SECRET_KEY"], algorithm="HS256").decode("UTF-8")
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        try:
+            username = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])["reset_password"]
+        except:
+            return None
+
+        return User.query.filter_by(username=username).first()
 
 
 class Post(db.Model):

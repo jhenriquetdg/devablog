@@ -31,3 +31,4 @@ werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values
 2017-12-31 21:36:20,921 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
 2017-12-31 21:36:45,176 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
 2017-12-31 21:38:21,613 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:50:42,134 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:59]
