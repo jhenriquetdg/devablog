@@ -19,7 +19,6 @@ from app import routes, models, errors
 from logging.handlers import RotatingFileHandler
 import os
 
-
 if not app.debug:
     if app.config['MAIL_SERVER']:
         auth = None
@@ -37,7 +36,7 @@ if not app.debug:
             mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
             fromaddr='no-reply@' + app.config['MAIL_SERVER'],
             toaddrs=app.config['ADMINS'],
-            subject='Microblog Failure',
+            subject='[Blog] Failure',
             credentials=auth,
             secure=secure)
         print("done.")

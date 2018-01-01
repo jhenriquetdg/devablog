@@ -1,4 +1,4 @@
-2017-12-31 16:12:08,845 ERROR: Exception on /edit_profile [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+2017-12-31 21:26:28,073 ERROR: Exception on /ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,16 +14,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 107, in edit_profile
-    form = EditProfileForm(current_user.username)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/forms.py", line 40, in __init__
-    flash("The original name is {}.".format(original_username))
-NameError: name 'flash' is not defined
-2017-12-31 16:12:34,944 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 16:13:53,242 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 16:14:05,551 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 88, in user
+    next_url = url_for("user", page=posts.next_num) if posts.has_next else None
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?
+2017-12-31 21:27:21,986 ERROR: Exception on /ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -39,37 +43,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 109, in edit_profile
-    if form.validate_on_submit():
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/fields/core.py", line 204, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/fields/core.py", line 224, in _run_validation_chain
-    validator(form, self)
-  File "/home/zetdg/Devasoft/devablog/app/forms.py", line 44, in validate_username
-    flash("I user valid {} == {} ? ({})".format(self.username, original_username, username))
-NameError: name 'original_username' is not defined
-2017-12-31 16:14:21,241 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 16:15:13,908 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 16:16:14,799 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 16:17:03,598 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
-    raise ValueError('View function did not return a response')
-ValueError: View function did not return a response
-2017-12-31 16:18:33,441 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 16:18:42,790 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 88, in user
+    next_url = url_for("user", page=posts.next_num) if posts.has_next else None
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?
+2017-12-31 21:28:02,328 ERROR: Exception on /ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,41 +72,46 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 109, in edit_profile
-    if form.validate_on_submit():
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/fields/core.py", line 204, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/wtforms/fields/core.py", line 224, in _run_validation_chain
-    validator(form, self)
-  File "/home/zetdg/Devasoft/devablog/app/forms.py", line 49, in validate_username
-    flash("User is in database? {} says: {}".format(user.username, user.about_me))
-AttributeError: 'NoneType' object has no attribute 'username'
-2017-12-31 16:19:01,345 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 88, in user
+    next_url = url_for("user", page=posts.next_num) if posts.has_next else None
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?
+2017-12-31 21:32:28,972 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:32:34,009 ERROR: Exception on /user/ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
-    raise ValueError('View function did not return a response')
-ValueError: View function did not return a response
-2017-12-31 16:20:21,469 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
-    raise ValueError('View function did not return a response')
-ValueError: View function did not return a response
-2017-12-31 16:20:33,366 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 88, in user
+    next_url = url_for("user", page=posts.next_num) if posts.has_next else None
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?

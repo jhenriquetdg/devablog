@@ -4,8 +4,10 @@
             <img src="{{ post.author.avatar(36) }}">
         </td>
         <td>
-            {{ post.author.username }} says: <br>
-            {{ post.body }}
+            <p style="font-size: 7px; margin:0px; padding: 0px;">{{ post.timestamp }}</p>
+            <p style="font-size: 14px; margin:0px; padding: 0px;">{{ post.author.username }} says:</p>
+            <p style="font-size: 20px; margin:0px; padding: 0px;">{{ post.body }} </p>
+            
         </td>
     </tr>
 </table>

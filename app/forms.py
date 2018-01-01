@@ -47,3 +47,8 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 flash("Choose another name, {} is in the database ({})".format(user.username, user.about_me))
                 raise ValidationError('Please use a different email address.')
+
+
+class PostForm(FlaskForm):
+    post = TextAreaField("Say something", validators=[DataRequired()])
+    submit = SubmitField("Submit")
