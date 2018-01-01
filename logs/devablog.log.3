@@ -1,4 +1,4 @@
-2017-12-31 19:02:01,519 ERROR: Exception on /follow/winne [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+2017-12-31 21:32:51,723 ERROR: Exception on /user/ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,10 +14,30 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 140, in follow
-    flash("You are following {}!".format(username))
-UnboundLocalError: local variable 'flash' referenced before assignment
-2017-12-31 19:04:03,160 ERROR: Exception on /follow/vovo [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 88, in user
+    next_url = url_for("user", page=posts.next_num) if posts.has_next else None
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?
+2017-12-31 21:35:21,825 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:36:20,921 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:36:45,176 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:38:21,613 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:50:42,134 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:59]
+2018-01-01 07:24:49,494 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 07:25:07,375 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 07:26:49,681 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 07:27:08,591 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 11:19:35,675 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
+2018-01-01 11:19:38,646 ERROR: Exception on /login [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -31,68 +51,41 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 140, in follow
-    flash("You are following {}!".format(username))
-UnboundLocalError: local variable 'flash' referenced before assignment
-2017-12-31 19:06:15,929 ERROR: Exception on /follow/ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 119, in login
+    return render_template('login.html', title='Sign In', form=form)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/zetdg/Devasoft/devablog/app/templates/login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/zetdg/Devasoft/devablog/app/templates/base.html", line 2, in top-level template code
+    {%- extends "bootstrap/base.html" %}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
+    {% block navbar %}
+  File "/home/zetdg/Devasoft/devablog/app/templates/base.html", line 23, in block "navbar"
+    <a class="navbar-brand" href="{{ url_for('main.index') }}"> Devablog </a>
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
     reraise(exc_type, exc_value, tb)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
     raise value
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 140, in follow
-    #flash("You are following {}!".format(username))
-UnboundLocalError: local variable 'flash' referenced before assignment
-2017-12-31 19:06:21,599 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:07:34,874 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:08:06,539 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:09:08,047 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:09:16,329 ERROR: Exception on /follow/vovo [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
-    raise value
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 141, in follow
-    flash("Not following.")
-UnboundLocalError: local variable 'flash' referenced before assignment
-2017-12-31 19:16:00,004 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:25:56,218 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:51:58,038 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:52:47,663 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:53:13,703 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:53:40,898 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:53:53,300 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:54:20,633 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:57:27,581 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:59:21,593 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:59:46,093 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 19:59:56,060 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 20:00:29,081 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 20:00:41,880 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 20:00:50,494 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 20:02:26,731 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 20:52:28,084 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
-2017-12-31 20:53:30,826 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.index'. Did you mean 'index' instead?
+2018-01-01 12:16:55,428 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]

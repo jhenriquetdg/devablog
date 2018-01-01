@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from app import db
-from app import ap
+from app import app
 
 from app.forms import PostForm
 from app.forms import LoginForm
@@ -15,9 +15,16 @@ from app.email import send_password_reset_email
 from app.models import User
 from app.models import Post
 
-from flask import request, render_template, flash, redirect, url_for
+from flask import flash
+from flask import url_for
+from flask import request
+from flask import redirect
+from flask import render_template
 
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import login_user
+from flask_login import logout_user
+from flask_login import current_user
+from flask_login import login_required
 
 
 @app.before_request
@@ -35,7 +42,7 @@ def register():
     form = RegistrationForm()
 
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(username=form.username.data,email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -90,18 +97,19 @@ def reset_password(token):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    flash("Mail Server:")
-    flash(app.config['MAIL_SERVER'])
-    flash(app.config['MAIL_PORT'])
-    flash(app.config['MAIL_USERNAME'])
-    flash(app.config['MAIL_PASSWORD'])
+    #flash("Mail Server:")
+    #flash(app.config['MAIL_SERVER'])
+    #flash(app.config['MAIL_PORT'])
+    #flash(app.config['MAIL_USERNAME'])
+    #flash(app.config['MAIL_PASSWORD'])
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
     form = LoginForm()
 
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
+        user = User.query.filter_by(
+            username=form.username.data).first()
 
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
@@ -143,8 +151,10 @@ def index():
     posts = current_user.followed_posts().paginate(
         page, app.config["POSTS_PER_PAGE"], False)
 
-    next_url = url_for("index", page=posts.next_num) if posts.has_next else None
-    prev_url = url_for("index", page=posts.prev_num) if posts.has_prev else None
+    next_url = url_for("explore", page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for("explore", page=posts.prev_num) \
+        if posts.has_prev else None
 
     return render_template('index.html',
         title='Home',
@@ -164,9 +174,9 @@ def edit_profile():
         current_user.about_me = form.about_me.data
         db.session.commit()
 
-        flash('Your changes have been saved.')
+        flash('Your changes have been saved {}.'.format(current_user.username))
 
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for("user", username=current_user.username))
 
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -185,8 +195,11 @@ def user(username):
     posts = Post.query.order_by(Post.timestamp.desc()).paginate(
         page, app.config["POSTS_PER_PAGE"], False)
 
-    next_url = url_for("user", username=user.username, page=posts.next_num) if posts.has_next else None
-    prev_url = url_for("user", username=user.username, page=posts.prev_num) if posts.has_prev else None
+    next_url = url_for("user", username=user.username, page=posts.next_num) \
+        if posts.has_next else None
+
+    prev_url = url_for("user", username=user.username, page=posts.prev_num) \
+        if posts.has_prev else None
 
     return render_template("user.html",
         user=user,
@@ -210,7 +223,7 @@ def follow(username):
 
     current_user.follow(user)
     db.session.commit()
-
+    flash('You are following {}!'.format(username))
     return redirect(url_for("user", username=username))
 
 
@@ -240,11 +253,13 @@ def explore():
     posts = Post.query.order_by(Post.timestamp.desc()).paginate(
         page, app.config["POSTS_PER_PAGE"], False)
 
-    next_url = url_for("index", page=posts.next_num) if posts.has_next else None
-    prev_url = url_for("index", page=posts.prev_num) if posts.has_prev else None
+    next_url = url_for("explore", page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for("explore", page=posts.prev_num) \
+        if posts.has_prev else None
 
     return render_template('index.html',
-        title='Home',
+        title='Explore',
         posts=posts.items,
         next_url=next_url,
         prev_url=prev_url)

@@ -1,21 +1,27 @@
-from datetime import datetime
-from app import db
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
-from app import login
+import jwt 
 from hashlib import md5
 from datetime import datetime
 
+from app import db
+from app import app
+from app import login
+
+from time import time
+from flask_login import UserMixin
+
+from werkzeug.security import check_password_hash
+from werkzeug.security import generate_password_hash
+
+
+followers = db.Table(
+    'followers',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id')),
+)
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
-
-followers = db.Table('followers',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id')),
-    )
 
 class User(UserMixin, db.Model):
 
@@ -39,7 +45,7 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'),
         lazy='dynamic'
-        )
+    )
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -72,8 +78,8 @@ class User(UserMixin, db.Model):
 
         return followed.union(own).order_by(Post.timestamp.desc())
 
-    def get_reset_password_token(self, expires_in=600)
-        return jwt.encode({"reset_password:" self.username, "exp": time()+expires_in}, app.config["SECRET_KEY"], algorithm="HS256").decode("UTF-8")
+    def get_reset_password_token(self, expires_in=600):
+        return jwt.encode({"reset_password": self.username, "exp": time()+expires_in}, app.config["SECRET_KEY"], algorithm="HS256").decode("UTF-8")
 
     @staticmethod
     def verify_reset_password_token(token):
