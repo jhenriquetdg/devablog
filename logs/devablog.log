@@ -55,3 +55,4 @@ Traceback (most recent call last):
 AttributeError: 'User' object has no attribute 'usernamme'
 2018-01-01 15:34:06,290 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
 2018-01-01 15:36:04,153 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
+2018-01-01 16:12:15,197 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:63]
