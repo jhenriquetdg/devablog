@@ -15,16 +15,20 @@ from app.email import send_password_reset_email
 from app.models import User
 from app.models import Post
 
+from flask import g
 from flask import flash
 from flask import url_for
 from flask import request
 from flask import redirect
 from flask import render_template
 
+from flask_babel import _
+from flask_babel import get_locale
 from flask_login import login_user
 from flask_login import logout_user
 from flask_login import current_user
 from flask_login import login_required
+
 
 
 @app.before_request
@@ -32,6 +36,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+        g.locale = str(get_locale())
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -46,7 +51,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash(_('Congratulations, you are now a registered user!'))
 
         return redirect(url_for('login'))
 
@@ -65,7 +70,7 @@ def reset_password_request():
         if user:
             send_password_reset_email(user)
 
-        flash('Check your email for the instructions to reset your password')
+        flash(_('Check your email for the instructions to reset your password'))
         return redirect(url_for('login'))
 
     return render_template('reset_password_request.html',
@@ -87,7 +92,7 @@ def reset_password(token):
     if form.validate_on_submit:
         user.set_password(form.password.data)
         db.session.commit()
-        flash("Your password has been reset")
+        flash(_("Your password has been reset"))
 
         return redirect(url_for("login"))
 
@@ -97,11 +102,11 @@ def reset_password(token):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    #flash("Mail Server:")
-    #flash(app.config['MAIL_SERVER'])
-    #flash(app.config['MAIL_PORT'])
-    #flash(app.config['MAIL_USERNAME'])
-    #flash(app.config['MAIL_PASSWORD'])
+    #flash(_("Mail Server:"))
+    #flash(_(app.config['MAIL_SERVER']))
+    #flash(_(app.config['MAIL_PORT']))
+    #flash(_(app.config['MAIL_USERNAME']))
+    #flash(_(app.config['MAIL_PASSWORD']))
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
@@ -112,7 +117,7 @@ def login():
             username=form.username.data).first()
 
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash(_('Invalid username or password'))
             return redirect(url_for('login'))
 
         login_user(user, remember=form.remember_me.data)
@@ -144,7 +149,7 @@ def index():
         db.session.add(post)
         db.session.commit()
 
-        flash("Your post is alive!")
+        flash(_("Your post is alive!"))
         return redirect(url_for("index"))
 
     page = request.args.get("page", 1, type=int)
@@ -174,7 +179,7 @@ def edit_profile():
         current_user.about_me = form.about_me.data
         db.session.commit()
 
-        flash('Your changes have been saved {}.'.format(current_user.username))
+        flash(_('Your changes have been saved %(username)s.', username=current_user.username))
 
         return redirect(url_for("user", username=current_user.username))
 
@@ -214,16 +219,16 @@ def follow(username):
     user = User.query.filter_by(username=username).first()
 
     if user is None:
-        flash("User {} isn't in our database.".format(username))
+        flash(_("User %(username)s isn't in our database.", username=username))
         return redirect(url_for("index"))
 
     if user == current_user:
-        flash("You cannot follow yourself!")
+        flash(_("You cannot follow yourself!"))
         return redirect(url_for("user", username=username))
 
     current_user.follow(user)
     db.session.commit()
-    flash('You are following {}!'.format(username))
+    flash(_('You are following %(username)s!', username=username))
     return redirect(url_for("user", username=username))
 
 
@@ -233,16 +238,16 @@ def unfollow(username):
     user = User.query.filter_by(username=username).first()
 
     if user is None:
-        flash("User {} is not in our database".format(username))
+        flash(_("User %(username)s is not in our database", username=username))
         return redirect(url_for("index"))
 
     if user == current_user:
-        flash("You cannot unfollow yourself!")
+        flash(_("You cannot unfollow yourself!"))
         return redirect(url_for("user", username=username))
 
     current_user.unfollow(user)
     db.session.commit()
-    flash("You are not following {}.".format(username))
+    flash(_("You are not following %(username)s.", username=username))
     return redirect(url_for("user", username=username))
 
 

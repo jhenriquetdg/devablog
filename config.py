@@ -19,3 +19,5 @@ class Config(object):
     ADMINS = ["devanagarisoftware@gmail.com"]
 
     POSTS_PER_PAGE = 25
+
+    LANGUAGES = ['de','es','fr','ja','ko','pt']

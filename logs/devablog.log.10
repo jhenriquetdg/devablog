@@ -1,13 +1,4 @@
-2017-12-31 15:09:39,058 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2017-12-31 21:32:51,723 ERROR: Exception on /user/ze [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -23,86 +14,78 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 109, in edit_profile
-    db.session.commit()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 937, in commit
-    self.transaction.commit()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 461, in commit
-    self._prepare_impl()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
-    self.session.flush()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 2237, in flush
-    self._flush(objects)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 2363, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 88, in user
+    next_url = url_for("user", page=posts.next_num) if posts.has_next else None
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
     raise value
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 2327, in _flush
-    flush_context.execute()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
-    rec.execute(self)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
-    uow
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/persistence.py", line 177, in save_obj
-    mapper, table, update)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/orm/persistence.py", line 768, in _emit_update_statements
-    execute(statement, multiparams)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
-    return meth(self, multiparams, params)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
-    context)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
-    exc_info
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?
+2017-12-31 21:35:21,825 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:36:20,921 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:36:45,176 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:38:21,613 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:57]
+2017-12-31 21:50:42,134 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:59]
+2018-01-01 07:24:49,494 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 07:25:07,375 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 07:26:49,681 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 07:27:08,591 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:60]
+2018-01-01 11:19:35,675 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
+2018-01-01 11:19:38,646 ERROR: Exception on /login [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 119, in login
+    return render_template('login.html', title='Sign In', form=form)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('winne', '', 2)] (Background on this error at: http://sqlalche.me/e/gkpj)
-2017-12-31 15:22:10,777 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 15:22:16,312 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
-    raise ValueError('View function did not return a response')
-ValueError: View function did not return a response
-2017-12-31 15:24:59,959 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
-2017-12-31 15:25:14,789 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
-    raise ValueError('View function did not return a response')
-ValueError: View function did not return a response
-2017-12-31 15:26:27,510 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1725, in make_response
-    raise ValueError('View function did not return a response')
-ValueError: View function did not return a response
-2017-12-31 15:26:40,903 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:58]
+  File "/home/zetdg/Devasoft/devablog/app/templates/login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/zetdg/Devasoft/devablog/app/templates/base.html", line 2, in top-level template code
+    {%- extends "bootstrap/base.html" %}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
+    {% block navbar %}
+  File "/home/zetdg/Devasoft/devablog/app/templates/base.html", line 23, in block "navbar"
+    <a class="navbar-brand" href="{{ url_for('main.index') }}"> Devablog </a>
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/routing.py", line 1768, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.index'. Did you mean 'index' instead?
+2018-01-01 12:16:55,428 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]

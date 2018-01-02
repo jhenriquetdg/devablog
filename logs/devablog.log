@@ -1,4 +1,4 @@
-2018-01-01 15:30:31,149 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
+2018-01-02 10:38:35,772 ERROR: Exception on /explore [GET] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
 Traceback (most recent call last):
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,45 +14,53 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 180, in edit_profile
-    return render_template('user', username=current_user.username)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 133, in render_template
-    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/loaders.py", line 113, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 57, in get_source
-    return self._get_source_fast(environment, template)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 85, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: user
-2018-01-01 15:33:15,186 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
-2018-01-01 15:33:22,959 ERROR: Exception on /edit_profile [POST] [in /home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py:1560]
-Traceback (most recent call last):
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 270, in explore
+    prev_url=prev_url)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
-    raise value
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/zetdg/Devasoft/devablog/app/routes.py", line 177, in edit_profile
-    flash('Your changes have been saved {}.'.format(current_user.usernamme))
-  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'usernamme'
-2018-01-01 15:34:06,290 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
-2018-01-01 15:36:04,153 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:61]
-2018-01-01 16:12:15,197 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:63]
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/zetdg/Devasoft/devablog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/zetdg/Devasoft/devablog/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/home/zetdg/Devasoft/devablog/app/templates/base.html", line 54, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/home/zetdg/Devasoft/devablog/app/templates/index.html", line 5, in block "app_content"
+    <h1>{{_("Hi, %(username)s!",current_user.username) }}</h1>
+  File "/home/zetdg/Devasoft/devablog/.devablog/lib/python3.5/site-packages/jinja2/ext.py", line 134, in _gettext_alias
+    return __context.call(__context.resolve('gettext'), *args, **kwargs)
+TypeError: gettext() takes 2 positional arguments but 3 were given
+2018-01-02 10:39:32,006 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:13:51,133 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:13:57,437 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:20:37,221 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:20:44,445 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:20:47,788 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:20:50,273 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:22:04,235 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:22:13,275 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:22:18,186 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:22:52,500 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:23:08,876 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:23:55,046 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:24:12,249 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:24:17,240 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:24:58,835 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:25:04,222 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:25:14,692 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:68]
+2018-01-02 12:26:19,177 INFO: Devablog startup [in /home/zetdg/Devasoft/devablog/app/__init__.py:66]
