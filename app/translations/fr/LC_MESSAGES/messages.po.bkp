@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-02 12:24-0300\n"
-"PO-Revision-Date: 2018-01-02 11:00-0300\n"
+"POT-Creation-Date: 2018-01-02 12:39-0300\n"
+"PO-Revision-Date: 2018-01-02 12:33-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -81,9 +81,7 @@ msgid "Choose another name, %(username)s is in the database (%(about_me)s)."
 msgstr ""
 "Choisissez un autre nom, %(username)s dans la base de données "
 "(%(about_me)s).Choisissez un autre nom, %(username)s dans la base de "
-"données (%(about_me)s).Choisissez un autre nom, %(username)s dans la base"
-" de données (%(about_me)s).Choisissez un autre nom, %(username)s dans la "
-"base de données (%(about_me)s)."
+"données (%(about_me)s)."
 
 #: app/forms.py:76
 msgid "Say something"
@@ -98,9 +96,7 @@ msgid "Check your email for the instructions to reset your password"
 msgstr ""
 "Vérifiez votre email pour les instructions pour réinitialiser votre mot "
 "de passeVérifiez votre email pour les instructions pour réinitialiser "
-"votre mot de passeVérifiez votre email pour les instructions pour "
-"réinitialiser votre mot de passeVérifiez votre email pour les "
-"instructions pour réinitialiser votre mot de passe"
+"votre mot de passe"
 
 #: app/routes.py:95
 msgid "Your password has been reset"
@@ -163,6 +159,10 @@ msgstr "%(username)s m'a dit %(when)s"
 #: app/templates/base.html:10
 msgid "Welcome to Devasoft"
 msgstr "Bienvenue à Devasoft"
+
+#: app/templates/base.html:22
+msgid "Esse é um teste."
+msgstr "Ceci est un test."
 
 #: app/templates/base.html:27
 msgid "Home"

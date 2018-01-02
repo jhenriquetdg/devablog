@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-02 12:24-0300\n"
+"POT-Creation-Date: 2018-01-02 12:39-0300\n"
 "PO-Revision-Date: 2018-01-02 12:23-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -94,7 +94,17 @@ msgstr ""
 "Consulte su correo electrónico para obtener las instrucciones para "
 "restablecer su contraseñaConsulte su correo electrónico para obtener las "
 "instrucciones para restablecer su contraseñaConsulte su correo "
-"electrónico para obtener las instrucciones para restablecer su contraseña"
+"electrónico para obtener las instrucciones para restablecer su "
+"contraseñaConsulte su correo electrónico para obtener las instrucciones "
+"para restablecer su contraseñaConsulte su correo electrónico para obtener"
+" las instrucciones para restablecer su contraseñaConsulte su correo "
+"electrónico para obtener las instrucciones para restablecer su "
+"contraseñaConsulte su correo electrónico para obtener las instrucciones "
+"para restablecer su contraseñaConsulte su correo electrónico para obtener"
+" las instrucciones para restablecer su contraseñaConsulte su correo "
+"electrónico para obtener las instrucciones para restablecer su "
+"contraseñaConsulte su correo electrónico para obtener las instrucciones "
+"para restablecer su contraseña"
 
 #: app/routes.py:95
 msgid "Your password has been reset"
@@ -157,6 +167,10 @@ msgstr "%(username)s dijo %(when)s"
 #: app/templates/base.html:10
 msgid "Welcome to Devasoft"
 msgstr "Bienvenido a Devasoft"
+
+#: app/templates/base.html:22
+msgid "Esse é um teste."
+msgstr "Esta es una prueba."
 
 #: app/templates/base.html:27
 msgid "Home"

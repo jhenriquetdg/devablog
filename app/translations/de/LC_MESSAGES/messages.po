@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-02 12:24-0300\n"
+"POT-Creation-Date: 2018-01-02 12:39-0300\n"
 "PO-Revision-Date: 2018-01-02 11:00-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -83,7 +83,15 @@ msgstr "Wählen Sie einen anderen Namen, %(username)s ist in der Datenbank (%(ab
 "(%(about_me)s).Wählen Sie einen anderen Namen, %(username)s ist in der "
 "Datenbank (%(about_me)s).Wählen Sie einen anderen Namen, %(username)s ist"
 " in der Datenbank (%(about_me)s).Wählen Sie einen anderen Namen, "
-"%(username)s ist in der Datenbank (%(about_me)s)."
+"%(username)s ist in der Datenbank (%(about_me)s).Wählen Sie einen anderen"
+" Namen, %(username)s ist in der Datenbank (%(about_me)s).Wählen Sie einen"
+" anderen Namen, %(username)s ist in der Datenbank (%(about_me)s).Wählen "
+"Sie einen anderen Namen, %(username)s ist in der Datenbank "
+"(%(about_me)s).Wählen Sie einen anderen Namen, %(username)s ist in der "
+"Datenbank (%(about_me)s).Wählen Sie einen anderen Namen, %(username)s ist"
+" in der Datenbank (%(about_me)s).Wählen Sie einen anderen Namen, "
+"%(username)s ist in der Datenbank (%(about_me)s).Wählen Sie einen anderen"
+" Namen, %(username)s ist in der Datenbank (%(about_me)s)."
 
 #: app/forms.py:76
 msgid "Say something"
@@ -100,7 +108,15 @@ msgstr "Überprüfen Sie Ihre E-Mail auf die Anweisungen zum Zurücksetzen Ihres
 "PasswortsÜberprüfen Sie Ihre E-Mail auf die Anweisungen zum Zurücksetzen "
 "Ihres PasswortsÜberprüfen Sie Ihre E-Mail auf die Anweisungen zum "
 "Zurücksetzen Ihres PasswortsÜberprüfen Sie Ihre E-Mail auf die "
-"Anweisungen zum Zurücksetzen Ihres Passworts"
+"Anweisungen zum Zurücksetzen Ihres PasswortsÜberprüfen Sie Ihre E-Mail "
+"auf die Anweisungen zum Zurücksetzen Ihres PasswortsÜberprüfen Sie Ihre "
+"E-Mail auf die Anweisungen zum Zurücksetzen Ihres PasswortsÜberprüfen Sie"
+" Ihre E-Mail auf die Anweisungen zum Zurücksetzen Ihres "
+"PasswortsÜberprüfen Sie Ihre E-Mail auf die Anweisungen zum Zurücksetzen "
+"Ihres PasswortsÜberprüfen Sie Ihre E-Mail auf die Anweisungen zum "
+"Zurücksetzen Ihres PasswortsÜberprüfen Sie Ihre E-Mail auf die "
+"Anweisungen zum Zurücksetzen Ihres PasswortsÜberprüfen Sie Ihre E-Mail "
+"auf die Anweisungen zum Zurücksetzen Ihres Passworts"
 
 #: app/routes.py:95
 msgid "Your password has been reset"
@@ -163,6 +179,10 @@ msgstr "%(username)s sagte %(when)s"
 #: app/templates/base.html:10
 msgid "Welcome to Devasoft"
 msgstr "Willkommen bei Devasoft"
+
+#: app/templates/base.html:22
+msgid "Esse é um teste."
+msgstr "Dies ist ein Test."
 
 #: app/templates/base.html:27
 msgid "Home"

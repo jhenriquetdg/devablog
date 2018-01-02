@@ -24,7 +24,8 @@ def init(lang='es'):
 
 
 @translate.command()
-def update():
+@click.argument('google')
+def update(google=False):
     """Update all languages."""
     if os.system("pybabel extract -F babel.cfg -k _l -o messages.pot ."):
         raise RuntimeError("extract command failed")
@@ -32,7 +33,7 @@ def update():
     if os.system("pybabel update -i messages.pot -d app/translations"):
         raise RuntimeError("update command failed")
 
-    if os.system("python babel-google.py"):
+    if google and os.system("python babel-google.py"):
         raise RuntimeError("babel google failed")
 
     os.remove("messages.pot")
